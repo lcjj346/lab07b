@@ -1,6 +1,11 @@
 pipeline {
 	agent none
-	stages {
+	stages {	
+		stage('Check Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
 		stage('Integration UI Test') {
 			parallel {
 				stage('Deploy') {
